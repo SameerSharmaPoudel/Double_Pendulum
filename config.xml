@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<input>
+	<problem title="Case 1 with RK4">
+		<body id="1">
+			<m>1</m>
+			<l>2</l>
+			<theta>45</theta>
+			<p>0</p>
+		</body>
+		<body id="2">
+			<m>2</m>
+			<l>2</l>
+			<theta>90</theta>
+			<p>0</p>
+		</body>
+		<g>9.81</g>
+	</problem>
+	<sim>
+		<!--Solver types: 1-Explicit Euler, 2-Implicit Euler /w Newton, 3-RK4, 4-Implicit Euler /w Fixed point, 5-Midpoint rule(implicit) -->
+		<solver>3</solver>
+		<!--Times given in seconds-->
+		<endtime>10</endtime>
+		<dt>0.01</dt>
+	</sim>
+	<!--Boolean variables: 1-True, 0-False-->
+	<!--draw parameter - when true, opens a new figure on screen for the graph-->
+	<postprocessing>
+		<positionplot draw="1"/>
+		<energyplot  draw="0"/>
+		<velocityplot  draw="0"/>
+		<accelerationplot  draw="0"/>
+		<!--To export the animation as .mp4 ffmpeg must be installed, otherwise the animation can only be shown on screen-->
+		<!--draw parameter - not recommended for dt < 0.03, as matplotlib figures don't support high fps-->
+		<!--mp4save parameter - if true, saves the animation as high-fps mp4 video-->
+		<!--ffmpeg parameter - path to ffmpeg.exe video processing program-->
+		<!--title parameter - title of the saved .mp4 file-->
+		<!--retainTrace parameter - during the animation keeps the position history curve -->
+		<animation draw="1" mp4save="1" ffmpeg="E:\COMMAS Materials\Summer School\2020\ffmpeg-4.3.1-2020-10-01-full_build\bin\ffmpeg.exe" title="C1RK4" retainTrace="1"/>
+	</postprocessing>
+</input>
